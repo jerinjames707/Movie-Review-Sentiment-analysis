@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+<script>
+  alert('{{error}}');
+</script>
+{% endif %}
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Review</h1>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Contact Star /-->
+  <section class="contact">
+    <div class="container">
+      <div class="row">
+       
+        <div class="col-sm-12 section-t8">
+          <div class="row">
+            <div class="col-md-6">
+              <form class="form-a contactForm" action="/review" method="post" role="form">
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+                <div class="row">
+                 
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input name="review" type="text" class="form-control form-control-lg form-control-a" placeholder="Your Review" data-rule="email" data-msg="Please enter a valid email">
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                
+                  <!-- <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="password" name="password" class="form-control form-control-lg form-control-a" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                      <div class="validation"></div>
+                    </div>
+                  </div> -->
+          
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-a">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6">
+              <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                  {% if sentiment %}
+                  <h1 class="title-single">Sentiment: <span style="color: red;">{{ sentiment }}</span></h1>
+                 
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Contact End /-->
+
+{% endblock %}
+ 
